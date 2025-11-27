@@ -1,5 +1,5 @@
 # ServiceNow Password Reset
-Este repositório conterá documentação desenvolvida em meu PDI do ServiceNow, que mostra os ajustes nas ACLs, Ações de UI e Configurações do Sistema para permitir que uma função execute redefinições de senha, além do usuário administrador.
+Este repositório conterá documentação desenvolvida em meu PDI do ServiceNow, que mostra os ajustes nas ACLs, UI Actions e Configurações do Sistema para permitir que uma função execute redefinições de senha, além do usuário administrador.
 
 ________________________________________
 Runbook – Correção Completa do Modal Set Password no ServiceNow
@@ -28,7 +28,7 @@ ________________________________________
 		•	Tipo: client_callable_script_include
 		•	Nome: ACL associada ao PasswordPolicyUtil
 ________________________________________
-4. ACLs da tabela sys_user
+# 4. ACLs da tabela sys_user
 # Para permitir leitura, escrita e funcionamento dos botões no modal, foram ajustadas as seguintes ACLs:
 	4.1 ACLs do campo user_password na tabela sys_user
 		•	sys_user.user_password — operation = read
@@ -39,9 +39,9 @@ ________________________________________
 		•	generate_copy_password — operation = read
 Em todas essas ACLs, a única ação necessária foi adicionar a role responsável pelo reset de senha.
 ________________________________________
-5. UI Actions – Botões do Modal Set Password
+# 5. UI Actions – Botões do Modal Set Password
 # Foi identificado que as UI Actions tinham condições que restringiam o uso apenas para a role admin.
-	Correção aplicada: 
+	Correção aplicada nos botões abaixo: 
 		•	Campo condition - (user.hasRole('admin') || user.hasRole('password_reset_admin'))
 			•	Botão Generate Password
 			•	Botão Reset Password
